@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: jessie0625
+
+development:
+  <<: *default
+  database: codementor_dev
+test:
+  <<: *default
+  database: codementor_test
+production:
+  <<: *default
+  database: codementor_prod
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

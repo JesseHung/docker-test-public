@@ -1,12 +1,16 @@
-FROM ruby:2.6.3
-MAINTAINER jessie <yingcianhung0625@gmail.com>
-RUN apt-get update && apt-get install -y build-essential libpq-dev nodejs vim postgis imagemagick
+FROM ruby:2.6.3-alpine
+
+RUN apk update && apk upgrade && apk add ruby ruby-json ruby-io-console ruby-bundler ruby-irb ruby-bigdecimal tzdata postgresql-dev && apk add nodejs && apk add curl-dev ruby-dev build-base libffi-dev && apk add build-base libxslt-dev libxml2-dev ruby-rdoc mysql-dev sqlite-dev
+
 RUN mkdir /app
 WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
-RUN gem install bundler
-RUN bundle --version
-RUN bundle install
-RUN rails db:create rails db:migrate rails db:seed:20210325_create_user
-RUN rails s 
+
+COPY Gemfile Gemfile.lock ./
+RUN gem install ovirt-engine-sdk -v '4.3.0' --source 'https://rubygems.org/'
+RUN bundle install --binstubs
+
+COPY . .
+
+EXPOSE 3000
+
+ENTRYPOINT ["sh", "./config/docker/startup.sh"]

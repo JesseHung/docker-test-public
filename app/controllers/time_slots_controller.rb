@@ -1,4 +1,5 @@
 class TimeSlotsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_user, except: [:destroy]
   before_action :set_timeslot, only: [:destroy]
 

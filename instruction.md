@@ -26,7 +26,7 @@ The `users_controller.rb` was not being fully developed with user authentication
 
 If needed to test GET Index request, simply types below url to the browser should get the response json.
 ```
-    https://localhost:3000/users/1/time-slots
+    http://localhost:3000/users/1/time-slots
 ```
 If needed to test POST/DELETE request, it is required to use API tester to send request body. And the required request body structure is listed below:
 ### create

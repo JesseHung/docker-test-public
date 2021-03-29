@@ -8,6 +8,10 @@ sh ./config/docker/prepare-db.sh
 # Seed DB
 sh ./config/docker/seed-db.sh
 
+# Test TimeSlotsController
+
+sh ./config/docker/test-time-slot-controller.sh
+
 # Pre-comple app assets
 sh ./config/docker/asset-pre-compile.sh
 

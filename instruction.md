@@ -46,8 +46,4 @@ If needed to test POST/DELETE request, it is required to use API tester to send 
 
 ## Unit Test
 
-To test `time_slots_controller.rb` can simply run below command in a new terminal:
-```
-rspec spec/controllers/time_slots_controller.rb
-```
-
+Unit Test should be completeted when running `docker-compose up`.

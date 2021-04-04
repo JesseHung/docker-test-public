@@ -1,4 +1,4 @@
-# Arc & Codementor TimeSlot API Instructure
+# TimeSlot API Instructure
 
 
 ## Install Rails App
